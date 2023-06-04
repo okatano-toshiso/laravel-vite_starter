@@ -14,5 +14,22 @@ PHP | 8.1.11
 Laravelとタスクランナーを結合したセットアップリポジトリは別に用意する
 
 変更を加えるまではmainブランチで作業する
-さあ、やってみよう
+# STEP1
+## dockerをbuildする
+docker compose up -d --build
+
+# STEP2
+## composerからlaravelをインストールする
+
+```
+docker compose exec php bash
+composer create-project --prefer-dist "laravel/laravel=" .
+php artisan migrate
+```
+
+コンテナに入って
+Laravelをインストール
+DBをマイグレーション
+
+# END
 
